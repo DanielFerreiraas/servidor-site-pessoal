@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
-const { initDatabase } = require('./config/db');
+const { pool, initDatabase } = require('./config/db');
+const experienciasRoute = require('./routes/experienciasRoute');
 
 const app = express();
 
@@ -9,6 +10,8 @@ const port = process.env.APP_PORT;
 app.get('/', (req, res) => {
     res.send('Seja bem vindo a API do meu site pessoal!');
 });
+
+app.use('/api/experiencias', experienciasRoute);
 
 initDatabase();
 
