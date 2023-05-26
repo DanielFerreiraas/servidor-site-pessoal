@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const { pool, initDatabase } = require('./config/db');
+const { initDatabase } = require('./config/db');
 const experienciasRoute = require('./routes/experienciasRoute');
 
 const app = express();
