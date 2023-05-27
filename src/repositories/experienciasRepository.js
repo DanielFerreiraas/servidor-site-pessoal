@@ -14,7 +14,7 @@ exports.createExperiencias = async (experiencia) => {
     const result = await pool.query(`
         INSERT INTO experiencias (titulo, instituicao, tipo, ano_inicio, ano_fim)
         VALUES ($1, $2, $3, $4, $5) 
-        RETURNING *;
+        RETURNING *
     `, 
     [experiencia.titulo, experiencia.instituicao, experiencia.tipo, experiencia.ano_inicio, experiencia.ano_fim]);
     return result.rows[0];
@@ -26,7 +26,8 @@ exports.updateExperiencias = async (id, experiencia) => {
         SET titulo = $1, instituicao = $2, tipo = $3, ano_inicio = $4, ano_fim = $5
         WHERE id = $6
         RETURNING *
-    `[experiencia.titulo, experiencia.instituicao, experiencia.tipo, experiencia.ano_inicio, experiencia.ano_fim]);
+    `,
+    [experiencia.titulo, experiencia.instituicao, experiencia.tipo, experiencia.ano_inicio, experiencia.ano_fim, id]);
     return result.rows[0];
 }; 
 
