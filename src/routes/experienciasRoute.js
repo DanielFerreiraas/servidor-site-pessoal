@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', experienciasController.getAllExperiencias);
 router.get('/:id', experienciasController.getExperienciasById);
-router.post('/cadastrar', experienciasController.createExperiencias);
+router.post('/', experienciasController.createExperiencias);
 router.put('/:id', experienciasController.updateExperiencias);
 router.delete('/:id', experienciasController.deleteExperiencias);
 

@@ -12,7 +12,6 @@ exports.createInformacoes = async (req, res) => {
 };
 
 exports.deleteInformacoes = async (req, res) => {
-    const id = (req.params.id);
-    await informacoesRepository.deleteInformacoes(id);
+    await informacoesRepository.deleteInformacoes();
     res.json({message: `Informacoes deletadas com sucesso!`});
 };
