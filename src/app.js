@@ -1,12 +1,14 @@
 require('dotenv').config();
 const express = require('express');
 
-const { initDatabase } = require('./config/db');7
+const { initDatabase } = require('./config/db');
+const cors = require('cors');
 
 const experienciasRoute = require('./routes/experienciasRoute');
 const portfoliosRoute = require('./routes/portfoliosRoute');
 const informacoesRoute = require('./routes/informacoesRoute');
 const authRoute = require('./routes/authRoute');
+
 
 const app = express();
 
@@ -16,6 +18,7 @@ app.get('/', (req, res) => {
     res.send('Seja bem vindo a API do meu site pessoal!');
 });
 
+app.use(cors());
 app.use(express.json());
 
 app.use('/api/experiencias', experienciasRoute);

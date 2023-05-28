@@ -15,6 +15,17 @@ exports.createInformacoes = async (informacao) => {
         return result.rows[0];
 };
 
+exports.updateInformacoes = async (informacao) => {
+    const result = await pool.query(`
+        UPDATE informacoes
+        SET foto = $1, nome = $2, cargo = $3
+        WHERE id = 1
+        RETURNING *
+    `,
+    [informacao.foto, informacao.nome, informacao.cargo]);
+    return result.rows[0];
+}
+
 exports.deleteInformacoes = async () => {
     await pool.query('DELETE FROM informacoes WHERE id = 1');
 };

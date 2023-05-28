@@ -1,6 +1,7 @@
 const usuariosRepository = require('../repositories/usuariosRepository');
 
 exports.login = async (req, res) => {
+    
     const { email, password } = req.body;
 
     const usuario = await usuariosRepository.getUsuarioByEmail(email);
