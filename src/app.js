@@ -6,6 +6,7 @@ const { initDatabase } = require('./config/db');7
 const experienciasRoute = require('./routes/experienciasRoute');
 const portfoliosRoute = require('./routes/portfoliosRoute');
 const informacoesRoute = require('./routes/informacoesRoute');
+const authRoute = require('./routes/authRoute');
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use('/api/experiencias', experienciasRoute);
 app.use('/api/portfolios', portfoliosRoute);
 app.use('/api/informacoes', informacoesRoute);
+app.use('/api/auth', authRoute);
 
 initDatabase();
 

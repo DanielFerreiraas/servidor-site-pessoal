@@ -41,6 +41,15 @@ const initDatabase = async () => {
                 cargo VARCHAR(255) NOT NULL
             );
         `);
+
+        await db.query(`
+            CREATE TABLE IF NOT EXISTS usuarios(
+                id SERIAL PRIMARY KEY,
+                email VARCHAR(255) NOT NULL,
+                password VARCHAR(255) NOT NULL
+            );
+        `);
+
         console.log('Banco de dados inicializado!');
     } catch (error) {
         console.log(error)
